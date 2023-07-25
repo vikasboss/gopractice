@@ -1,0 +1,235 @@
+Topic 1: Hello-World
+
+What is the purpose of the "Hello, World!" program in any programming language?
+How do you print "Hello, World!" in Go?
+Explain the role of the package main and func main() in the "Hello, World!" program.
+Topic 2: Variables-Datatypes
+
+In Go, what are variables, and how are they declared?
+What is the difference between the built-in data types int and float64?
+How do you initialize a variable with a default value in Go?
+What is the purpose of the var keyword in Go?
+Topic 3: Constants
+
+What are constants, and how are they different from variables in Go?
+How do you declare and initialize constants in Go?
+Can you change the value of a constant during runtime? Why or why not?
+Topic 4: Datatypes
+
+Explain the difference between a primitive data type and a composite/derived data type in Go.
+What are some of the common primitive data types in Go?
+How do you create custom data types using aliases in Go?
+Topic 5: Converting-Datatypes
+
+How do you convert a variable of type int to float64 in Go?
+Can you convert a string representing a number to an actual numeric data type in Go? If yes, how?
+What is the importance of type conversion when performing arithmetic operations in Go?
+Topic 6: Operators
+
+List some of the basic arithmetic operators in Go and their usage.
+How does the % (modulo) operator work in Go?
+What is the difference between = and == in Go?
+Topic 7: Functions
+
+Explain the concept of functions in Go and their purpose.
+How do you define a function in Go?
+What is the significance of the return statement in a function?
+Topic 8: Function-Declaration
+
+What is the difference between function declaration and function definition in Go?
+How can you declare a function that takes multiple parameters in Go?
+Topic 9: Function-With-Parameters
+
+How do you pass arguments to a function in Go?
+Can you pass variables of different data types as function arguments in Go?
+What happens if a function is defined to accept parameters, but you call it without passing any arguments?
+Topic 10: Function-Return-Values
+
+How can you return a value from a function in Go?
+Can a function return multiple values in Go? If yes, how is this achieved?
+Topic 11: Anonymous-Functions
+
+What is an anonymous function, and what are its advantages in Go?
+How do you declare and use anonymous functions in Go?
+Topic 12: Closure-Functions
+
+Explain the concept of a closure in Go.
+How are closures different from regular functions?
+Provide an example of a closure in Go.
+Topic 13: Variadic-Functions
+
+What is a variadic function, and how is it declared in Go?
+Can you pass multiple arguments to a variadic function? If yes, how?
+Topic 14: Deferred-Function-Calls
+
+What is the purpose of deferred function calls in Go?
+How does Go handle deferred functions when they are called in a program?
+Topic 15: Higher-Order-Functions
+
+Define higher-order functions in Go and their usage.
+How can you pass functions as arguments to other functions in Go?
+Topic 16: Control-Structures
+
+What are control structures in Go, and why are they important in programming?
+How do you use if statements in Go? Provide an example.
+Explain the usage of the switch statement in Go and compare it to using multiple if statements.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Some Key Take aways
+1.	
+    // Variable Declaration Block
+	var (
+		name = "Donald Duck"
+		age  = 50
+	)
+it does not have commas
+
+
+2.var strFlo string = strconv.FormatFloat(flo, 'E', -1, 32)
+-1 denotes precision
+
+
+3.
+The below can also be written as
+func add(x int, y int) {
+	fmt.Println(x + y)
+}
+func add(x , y int) {
+	fmt.Println(x + y)
+}
+
+
+4.Init function is executed before main
+// Go program to illustrate the
+// concept of init() function
+  
+// Declaration of the main package
+package main
+  
+// Importing package
+import "fmt"
+  
+// Multiple init() function
+func init() {
+    fmt.Println("Welcome to init() function")
+}
+  
+func init() {
+    fmt.Println("Hello! init() function")
+}
+  
+// Main function
+func main() {
+    fmt.Println("Welcome to main() function")
+}
+Output:
+
+Welcome to init() function
+Hello! init() function
+Welcome to main() function
+
+
+5.Go is never dynamically typed
+it's compiler is smart
+
+
+6.Remeber the storages
+
+
+
+2 power n-1 signed
+2 power n unsigned 
+-1 comes in case of maximum range because 0 is included
+/*
+uint8       unsigned  8-bit integers (0 to 255)
+uint16      unsigned 16-bit integers (0 to 65535)
+uint32      unsigned 32-bit integers (0 to 4294967295)
+uint64      unsigned 64-bit integers (0 to 18446744073709551615)
+int8        signed  8-bit integers (-128 to 127)
+int16       signed 16-bit integers (-32768 to 32767)
+int32       signed 32-bit integers (-2147483648 to 2147483647)
+int64       signed 64-bit integers (-9223372036854775808 to 9223372036854775807)
+
+float32     IEEE-754 32-bit floating-point numbers
+float64     IEEE-754 64-bit floating-point numbers
+complex64   complex numbers with float32 real and imaginary parts
+complex128  complex numbers with float64 real and imaginary parts
+
+real()
+imag()
+
+
+byte        alias for uint8
+rune        alias for int32
+
+uint     unsigned, either 32 or 64 bits
+int      signed, either 32 or 64 bits
+uintptr  unsigned integer large enough to store the uninterpreted bits of a pointer value
+*/
+
+
+7.Const can remain unused
+
+8.How do you create custom data types using aliases in Go?
+
+Sytax:
+type AliasName ExistingDataType
+package main
+
+import "fmt"
+
+// Alias the existing data type int to a new name Age.
+type Age int
+
+// Alias the existing data type string to a new name PersonName.
+type PersonName string
+
+func main() {
+	// Create variables of the custom data types.
+	var myAge Age = 30
+	var name PersonName = "John Doe"
+
+	// Print the values of the variables.
+	fmt.Println("My age:", myAge)
+	fmt.Println("My name:", name)
+}
+
+
+9.
+//aa := 1
+	//fucked up
+	switch aa:= 1 {
+	case 1:
+		fmt.Println("One")
+		fallthrough
+	case 2:
+		fmt.Println("One")
+	case 3:
+		fmt.Println("Thre")
+	default:
+		fmt.Println("Default")
+
+	}
+will work now
+	// Switch initializer statement
+	switch number := 5; {
+	case number < 5:
+		fmt.Println("Smaller than 5")
+	case number == 5:
+		fmt.Println("Five")
+	case number > 5:
+		fmt.Println("Bigger than five")
+	default:
+		fmt.Println("No information about the number")
+	}
